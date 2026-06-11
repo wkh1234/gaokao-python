@@ -13,5 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt -i https://pypi.tuna.tsinghua
 # 复制所有项目代码
 COPY . .
 
-# 启动命令，必须用 $PORT，Railway 会自动替换
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "$PORT"]
+# 启动命令
+CMD uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}
